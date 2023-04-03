@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+    function addItem(){
+        let todo = document.getElementById("item");
+        let list = document.getElementById("todolist");
+        let listitem = document.createElement("li");
+        listitem.innerText = todo.value;
+        
+        list.appendChild(listitem);
+        let xbtn = document.createElement("button");
+        listitem.appendChild(xbtn);
+        xbtn.onclick = function(e) {
+        	let pnode = e.target.parentNode;
+        	list.removeChild(pnode);
+        }
+        todo.value = "";
+        todo.focus();
+    }
+</script>
+<title>웹개발 과제</title>
+<style>
+    h2 {
+        border-radius: 5px;
+        background-color: green;
+        text-align: center;
+        padding: 17px 0;
+    }
+    li {
+    color:orange;
+    background-color: skyblue;
+    padding: 10px 0;
+    }
+</style>
+</head>
+<body>
+    <h2>My TODO list</h2>
+    <hr>
+    <div>
+        <input id="item" type="text" placeholder="할일을 입력하세요">
+        <button type="button" onclick="addItem()">할일추가</button>
+    </div>
+    <hr>
+    <ul id="todolist" class="list-group"></ul>
+</body>
+</html>
